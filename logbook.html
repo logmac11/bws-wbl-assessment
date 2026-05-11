@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BWS WBL Assessment — Logbook</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <a href="index.html" class="back-btn">← Back to Home</a>
+            <h1><span class="bws">BWS</span> WBL ASSESSMENT</h1>
+            <p class="subtitle">Work-Based Learning — Industry Logbook Evaluation Form</p>
+        </div>
+
+        <div class="content">
+            <!-- Instructions -->
+            <div class="instructions">
+                <h3>📋 Instructions:</h3>
+                <ul>
+                    <li>This assessment is used for every 4 weeks submission appraisal</li>
+                    <li>Select the appropriate score from the dropdown for each rubric item</li>
+                    <li>Score range: <strong>1 (Very Poor)</strong> to <strong>5 (Very Good)</strong></li>
+                    <li>All fields marked with <span class="required">*</span> are required</li>
+                </ul>
+            </div>
+
+            <form id="assessmentForm">
+                <!-- Student & Company Information -->
+                <div class="form-section">
+                    <div class="section-title">Student & Company Information</div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Student Name <span class="required">*</span></label>
+                            <select id="studentName" name="studentName" required>
+                                <option value="">-- Select Student --</option>
+                                <option value="Adam Danial Bin Azihan">Adam Danial Bin Azihan</option>
+                                <option value="Aini Nadirah Binti Sasman">Aini Nadirah Binti Sasman</option>
+                                <option value="Balqis Binti Mohd Yunus">Balqis Binti Mohd Yunus</option>
+                                <option value="Devasreman A/l Krishnamurthy">Devasreman A/l Krishnamurthy</option>
+                                <option value="Iffah Naqibah Binti Zainal Abidin">Iffah Naqibah Binti Zainal Abidin</option>
+                                <option value="Ikmal Norhakim Bin Norhaziman">Ikmal Norhakim Bin Norhaziman</option>
+                                <option value="Muhammad Fatin Bin Abd Rahman">Muhammad Fatin Bin Abd Rahman</option>
+                                <option value="Muhammad Sufi Fahmy Bin Abdullah">Muhammad Sufi Fahmy Bin Abdullah</option>
+                                <option value="Nor Afisya Eadie">Nor Afisya Eadie</option>
+                                <option value="Nor Ali Yanshah Bin Mat Ra'e">Nor Ali Yanshah Bin Mat Ra'e</option>
+                                <option value="Nor Balqis Binti Nor Zaini">Nor Balqis Binti Nor Zaini</option>
+                                <option value="Norhusnina Zulaikha Binti Muhammad Rizwan">Norhusnina Zulaikha Binti Muhammad Rizwan</option>
+                                <option value="Nur Ainna Binti Azman">Nur Ainna Binti Azman</option>
+                                <option value="Nur Alia Munirah Binti Abdul Ghamar">Nur Alia Munirah Binti Abdul Ghamar</option>
+                                <option value="Nur Zawawi Bin Nuzaidi">Nur Zawawi Bin Nuzaidi</option>
+                                <option value="Nurhafizah Binti Azlan Hisham">Nurhafizah Binti Azlan Hisham</option>
+                                <option value="Nurhusnah Binti Ruamin">Nurhusnah Binti Ruamin</option>
+                                <option value="Nurul Athirah Binti Abdul Rahman">Nurul Athirah Binti Abdul Rahman</option>
+                                <option value="Nurul Syahirah Binti Zairul Adam">Nurul Syahirah Binti Zairul Adam</option>
+                                <option value="Rafa An Najwa Binti Mohammad Amiruddin">Rafa An Najwa Binti Mohammad Amiruddin</option>
+                                <option value="Raja Nur Sabillah Binti Raja Saifullizan">Raja Nur Sabillah Binti Raja Saifullizan</option>
+                                <option value="Safiyyah Nafeesa Binti Ismail">Safiyyah Nafeesa Binti Ismail</option>
+                                <option value="Salwa Binti Md Saidi">Salwa Binti Md Saidi</option>
+                                <option value="Siti Fatehah Binti Mahamad">Siti Fatehah Binti Mahamad</option>
+                                <option value="Syarifah Adriana Binti Syed Fairuz Sazman">Syarifah Adriana Binti Syed Fairuz Sazman</option>
+                                <option value="Toh Min Xuan">Toh Min Xuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>University Supervisor <span class="required">*</span></label>
+                            <select id="universitySupervisor" name="universitySupervisor" required>
+                                <option value="">-- Select Supervisor --</option>
+                                <option value="ASSOC. PROF. DR. FAZLINA BINTI AMAN">ASSOC. PROF. DR. FAZLINA BINTI AMAN</option>
+                                <option value="ASSOC. PROF. DR. MOHD SAIFULLAH BIN RUSIMAN">ASSOC. PROF. DR. MOHD SAIFULLAH BIN RUSIMAN</option>
+                                <option value="ASSOC. PROF. TS. DR. SITI SUHANA BINTI JAMAIAN">ASSOC. PROF. TS. DR. SITI SUHANA BINTI JAMAIAN</option>
+                                <option value="DR. KEK SIE LONG">DR. KEK SIE LONG</option>
+                                <option value="DR. LOGENTHIRAN MACHAP">DR. LOGENTHIRAN MACHAP</option>
+                                <option value="PROF. TS.DR. AZME BIN KHAMIS">PROF. TS.DR. AZME BIN KHAMIS</option>
+                                <option value="TS. DR. WAN NOR MUNIRAH BINTI ARIFFIN">TS. DR. WAN NOR MUNIRAH BINTI ARIFFIN</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Industry Coach Name <span class="required">*</span></label>
+                            <input type="text" id="industryCoach" name="industryCoach" required placeholder="Enter industry coach name">
+                        </div>
+                        <div class="form-group">
+                            <label>Industry Coach Email <span class="required">*</span></label>
+                            <input type="email" id="industryCoachEmail" name="industryCoachEmail" required placeholder="coach@company.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Company Name <span class="required">*</span></label>
+                            <input type="text" id="companyName" name="companyName" required placeholder="Enter company name">
+                        </div>
+                        <div class="form-group">
+                            <label>Assessment Date <span class="required">*</span></label>
+                            <input type="date" id="assessmentDate" name="assessmentDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Week <span class="required">*</span></label>
+                            <select id="week" name="week" required>
+                                <option value="">-- Select Week --</option>
+                                <option value="Week 1">Week 1</option>
+                                <option value="Week 2">Week 2</option>
+                                <option value="Week 3">Week 3</option>
+                                <option value="Week 4">Week 4</option>
+                                <option value="Week 5">Week 5</option>
+                                <option value="Week 6">Week 6</option>
+                                <option value="Week 7">Week 7</option>
+                                <option value="Week 8">Week 8</option>
+                                <option value="Week 9">Week 9</option>
+                                <option value="Week 10">Week 10</option>
+                                <option value="Week 11">Week 11</option>
+                                <option value="Week 12">Week 12</option>
+                                <option value="Week 13">Week 13</option>
+                                <option value="Week 14">Week 14</option>
+                                <option value="Week 15">Week 15</option>
+                                <option value="Week 16">Week 16</option>
+                                <option value="Week 17">Week 17</option>
+                                <option value="Week 18">Week 18</option>
+                                <option value="Week 19">Week 19</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Semester/Session <span class="required">*</span></label>
+                            <select id="semester" name="semester" required>
+                                <option value="">-- Select Semester --</option>
+                                <option value="S2/20252026">S2/20252026</option>
+                                <option value="S3/20252026">S3/20252026</option>
+                                <option value="S1/20262027">S1/20262027</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rubric Assessment Section -->
+                <div class="form-section">
+                    <div class="section-title">Assessment Rubric</div>
+
+                    <table class="rubric-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 32%;">Assessment Item & Description</th>
+                                <th style="width: 10%;">Level</th>
+                                <th style="width: 15%;">Score</th>
+                                <th style="width: 10%;">Weightage</th>
+                                <th style="width: 10%;">Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item 1 -->
+                            <tr>
+                                <td>
+                                    <div class="item-cell">
+                                        <span class="item-title"><span class="item-number">1</span>Logbook (Content)</span>
+                                        <span class="item-description">Activities, reflections, and outcomes are detailed in logbook entries</span>
+                                    </div>
+                                </td>
+                                <td class="level-col">C4</td>
+                                <td style="text-align: center;">
+                                    <select class="score-dropdown" id="item1" onchange="calculateScore(1, 2.4)">
+                                        <option value="">Select</option>
+                                        <option value="1">1 — Very Poor</option>
+                                        <option value="2">2 — Poor</option>
+                                        <option value="3">3 — Fair</option>
+                                        <option value="4">4 — Good</option>
+                                        <option value="5">5 — Very Good</option>
+                                    </select>
+                                </td>
+                                <td class="weightage-col">2.4</td>
+                                <td class="score-col" id="score1">—</td>
+                            </tr>
+
+                            <!-- Item 2 -->
+                            <tr>
+                                <td>
+                                    <div class="item-cell">
+                                        <span class="item-title"><span class="item-number">2</span>Organization and Structure</span>
+                                        <span class="item-description">Logbook is well-organized with a logical structure that is easy to follow</span>
+                                    </div>
+                                </td>
+                                <td class="level-col">C3</td>
+                                <td style="text-align: center;">
+                                    <select class="score-dropdown" id="item2" onchange="calculateScore(2, 1.6)">
+                                        <option value="">Select</option>
+                                        <option value="1">1 — Very Poor</option>
+                                        <option value="2">2 — Poor</option>
+                                        <option value="3">3 — Fair</option>
+                                        <option value="4">4 — Good</option>
+                                        <option value="5">5 — Very Good</option>
+                                    </select>
+                                </td>
+                                <td class="weightage-col">1.6</td>
+                                <td class="score-col" id="score2">—</td>
+                            </tr>
+
+                            <!-- Item 3 -->
+                            <tr>
+                                <td>
+                                    <div class="item-cell">
+                                        <span class="item-title"><span class="item-number">3</span>Quality of Work</span>
+                                        <span class="item-description">Independently generates high-quality work with attention to detail and high standards</span>
+                                    </div>
+                                </td>
+                                <td class="level-col">A3</td>
+                                <td style="text-align: center;">
+                                    <select class="score-dropdown" id="item3" onchange="calculateScore(3, 0.8)">
+                                        <option value="">Select</option>
+                                        <option value="1">1 — Very Poor</option>
+                                        <option value="2">2 — Poor</option>
+                                        <option value="3">3 — Fair</option>
+                                        <option value="4">4 — Good</option>
+                                        <option value="5">5 — Very Good</option>
+                                    </select>
+                                </td>
+                                <td class="weightage-col">0.8</td>
+                                <td class="score-col" id="score3">—</td>
+                            </tr>
+
+                            <!-- Item 4 -->
+                            <tr>
+                                <td>
+                                    <div class="item-cell">
+                                        <span class="item-title"><span class="item-number">4</span>Planning and Organization</span>
+                                        <span class="item-description">Plans and organizes work exceptionally well, setting clear goals and milestones, and efficiently managing resources and time</span>
+                                    </div>
+                                </td>
+                                <td class="level-col">A4</td>
+                                <td style="text-align: center;">
+                                    <select class="score-dropdown" id="item4" onchange="calculateScore(4, 0.6)">
+                                        <option value="">Select</option>
+                                        <option value="1">1 — Very Poor</option>
+                                        <option value="2">2 — Poor</option>
+                                        <option value="3">3 — Fair</option>
+                                        <option value="4">4 — Good</option>
+                                        <option value="5">5 — Very Good</option>
+                                    </select>
+                                </td>
+                                <td class="weightage-col">0.6</td>
+                                <td class="score-col" id="score4">—</td>
+                            </tr>
+
+                            <!-- Item 5 -->
+                            <tr>
+                                <td>
+                                    <div class="item-cell">
+                                        <span class="item-title"><span class="item-number">5</span>Attitude</span>
+                                        <span class="item-description">Consistently demonstrates excellent attitude, highly respectful, proactive, mature, and sets a positive example to others</span>
+                                    </div>
+                                </td>
+                                <td class="level-col">P3</td>
+                                <td style="text-align: center;">
+                                    <select class="score-dropdown" id="item5" onchange="calculateScore(5, 0.6)">
+                                        <option value="">Select</option>
+                                        <option value="1">1 — Very Poor</option>
+                                        <option value="2">2 — Poor</option>
+                                        <option value="3">3 — Fair</option>
+                                        <option value="4">4 — Good</option>
+                                        <option value="5">5 — Very Good</option>
+                                    </select>
+                                </td>
+                                <td class="weightage-col">0.6</td>
+                                <td class="score-col" id="score5">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="total-section">
+                        <span class="total-label">TOTAL SCORE</span>
+                        <span class="total-score" id="totalScore">0</span>
+                        <span class="total-max">/ 30</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">SUBMIT ASSESSMENT</button>
+
+                <div id="successMessage" class="success-message">
+                    ✅ Assessment submitted successfully! Thank you for your evaluation.
+                </div>
+                <div id="errorMessage" class="error-message">
+                    ❌ Error submitting assessment. Please try again.
+                </div>
+				
+				<!-- Bottom Navigation -->
+				<div style="text-align: center; margin: 25px 0 10px 0;">
+					<a href="index.html" style="display: inline-block; background: #1a2a4a; color: white; padding: 12px 28px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.95em; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.15);">
+						← Back to Home
+					</a>
+				</div>
+            </form>
+        </div>
+
+        <div class="footer">
+            BWS WBL Assessment System &copy; 2026 — All rights reserved
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Logbook-specific form submission
+        document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            let allScored = true;
+            for (let i = 1; i <= 5; i++) {
+                if (!document.getElementById(`item${i}`).value) {
+                    allScored = false;
+                    break;
+                }
+            }
+
+            if (!allScored) {
+                alert('Please score all 5 assessment items before submitting.');
+                return;
+            }
+
+            const formData = {
+                assessmentType: 'Logbook',
+                studentName: document.getElementById('studentName').value,
+                universitySupervisor: document.getElementById('universitySupervisor').value,
+                industryCoach: document.getElementById('industryCoach').value,
+                industryCoachEmail: document.getElementById('industryCoachEmail').value,
+                companyName: document.getElementById('companyName').value,
+                assessmentDate: document.getElementById('assessmentDate').value,
+                week: document.getElementById('week').value,
+                semester: document.getElementById('semester').value,
+                item1Score: document.getElementById('item1').value,
+                item2Score: document.getElementById('item2').value,
+                item3Score: document.getElementById('item3').value,
+                item4Score: document.getElementById('item4').value,
+                item5Score: document.getElementById('item5').value,
+                totalScore: document.getElementById('totalScore').textContent,
+                submissionDate: new Date().toISOString()
+            };
+
+            try {
+                const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbycAPs2nGovyDqMV6dvtTvQRTZH0rSLkb3d5zPmyAMCc8AQshKV98vbSljWT7cbcFcgbw/exec';
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+
+                setTimeout(() => {
+                    this.reset();
+                    for (let i = 1; i <= 5; i++) {
+                        document.getElementById(`item${i}`).value = '';
+                        document.getElementById(`score${i}`).textContent = '—';
+                    }
+                    document.getElementById('totalScore').textContent = '0';
+                    document.getElementById('successMessage').style.display = 'none';
+                    document.getElementById('assessmentDate').valueAsDate = new Date();
+                }, 3000);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

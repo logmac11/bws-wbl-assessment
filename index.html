@@ -5,6 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BWS WBL Assessment System</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles for 3-column layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .assessment-card {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #c0392b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .assessment-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .assessment-card h2 {
+            color: #1a2a4a;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            min-height: 50px;
+        }
+
+        .card-description {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.88em;
+            flex-grow: 1;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            background: #1a2a4a;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+
+        .card-btn:hover {
+            background: #a93226;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive: Stack on smaller screens */
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .assessment-card h2 {
+                min-height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -25,16 +124,14 @@
                 </ul>
             </div>
 
-            <!-- Assessment Selection Cards -->
+            <!-- Assessment Selection Cards - 3 in One Row -->
             <div class="card-grid">
                 <!-- Card 1: Logbook -->
                 <div class="assessment-card">
                     <div class="card-icon">📖</div>
                     <h2>WBL Logbook Assessment</h2>
                     <p class="card-description">
-                        Industry evaluation of student logbook submissions. 
-                        Assessed every 4 weeks covering content quality, 
-                        organization, work quality, planning, and attitude.
+                        Industry evaluation of student logbook submissions. Assessed every 4 weeks covering content quality, organization, work quality, planning, and attitude.
                     </p>
                     <div class="card-details">
                         <span class="detail-item">📊 5 Rubric Items</span>
@@ -47,11 +144,9 @@
                 <!-- Card 2: Observation -->
                 <div class="assessment-card">
                     <div class="card-icon">👁️</div>
-                    <h2>Observation & Demonstration Evaluation</h2>
+                    <h2>Observation & Demonstration</h2>
                     <p class="card-description">
-                        Industry observation assessment across 3 courses: 
-                        IT Professional Practice, Data Analytics & Management, 
-                        and Industry Integrated Project Proposal.
+                        Industry observation assessment across 3 courses: IT Professional Practice, Data Analytics & Management, and Industry Integrated Project Proposal.
                     </p>
                     <div class="card-details">
                         <span class="detail-item">📊 3 Course Sections</span>
@@ -60,6 +155,21 @@
                     </div>
                     <a href="observation.html" class="card-btn">Start Observation Assessment</a>
                 </div>
+
+                <!-- Card 3: Feedback -->
+                <div class="assessment-card">
+                    <div class="card-icon">💬</div>
+                    <h2>Industry Coach Feedback</h2>
+                    <p class="card-description">
+                        Qualitative evaluation form for industry coaches to provide structured feedback on student performance, strengths, and actionable recommendations.
+                    </p>
+                    <div class="card-details">
+                        <span class="detail-item">📝 Text Feedback</span>
+                        <span class="detail-item">🎯 Mid-Semester</span>
+                        <span class="detail-item">📊 Qualitative</span>
+                    </div>
+                    <a href="feedback.html" class="card-btn">Submit Feedback</a>
+                </div>
             </div>
 
             <!-- Quick Info -->
@@ -67,7 +177,7 @@
                 <h3>📌 Important Notes</h3>
                 <div class="info-grid">
                     <div class="info-item">
-                        <h4> Data Privacy</h4>
+                        <h4>🔒 Data Privacy</h4>
                         <p>All assessment data is stored securely in Google Sheets and accessible only to authorized personnel.</p>
                     </div>
                     <div class="info-item">
@@ -84,7 +194,7 @@
 
         <!-- Footer -->
         <div class="footer">
-            BWS WBL Assessment System (FAST, UTHM) &copy; 2026 — All rights reserved
+            BWS WBL Assessment System (FAST, UTHM)&copy; 2026 — All rights reserved
         </div>
     </div>
 </body>

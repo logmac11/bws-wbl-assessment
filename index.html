@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BWS WBL Assessment System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Card grid - 3 columns */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .assessment-card {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #c0392b;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .assessment-card:hover {
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .assessment-card h2 {
+            color: #1a2a4a;
+            margin-bottom: 12px;
+            font-size: 1.15em;
+            min-height: 50px;
+            line-height: 1.3;
+        }
+
+        .role-badge {
+            font-size: 0.65em;
+            background: #c0392b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 12px;
+            vertical-align: middle;
+            margin-left: 5px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .role-badge.university {
+            background: #1a2a4a;
+        }
+
+        .card-description {
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-size: 0.88em;
+            flex-grow: 1;
+        }
+
+        .course-list {
+            text-align: left;
+            margin: 10px 0 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #c0392b;
+        }
+
+        .course-list p {
+            margin: 4px 0;
+            font-size: 0.85em;
+            color: #333;
+        }
+
+        .course-list strong {
+            color: #1a2a4a;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            background: #1a2a4a;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 600;
+        }
+
+        .card-btn {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+        }
+
+        .card-btn:hover {
+            background: #a93226;
+            box-shadow: 0 4px 15px rgba(192, 57, 43, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Additional Resources Section */
+        .resources-section {
+            background: #f8f8f8;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #c0392b;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .resources-section h3 {
+            color: #1a2a4a;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .resource-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .resource-link {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 18px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #1a2a4a;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .resource-link:hover {
+            border-color: #c0392b;
+            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .resource-icon {
+            font-size: 1.8em;
+            margin-right: 15px;
+        }
+
+        .resource-text strong {
+            display: block;
+            color: #1a2a4a;
+            margin-bottom: 4px;
+            font-size: 1em;
+        }
+
+        .resource-text span {
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        /* Important Dates Section - Simplified */
+        .dates-section {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .dates-section h3 {
+            color: #1a2a4a;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #c0392b;
+            padding-bottom: 10px;
+        }
+
+        .dates-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .dates-table thead th {
+            background: #1a2a4a;
+            color: white;
+            padding: 12px 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9em;
+            border-bottom: 3px solid #c0392b;
+        }
+
+        .dates-table thead th:first-child {
+            text-align: left;
+            width: 22%;
+        }
+
+        .dates-table thead th:nth-child(2) {
+            width: 26%;
+        }
+
+        .dates-table tbody td {
+            padding: 10px 10px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 0.85em;
+            color: #333;
+            vertical-align: top;
+        }
+
+        .dates-table tbody td:first-child {
+            font-weight: 700;
+            color: #1a2a4a;
+            background: #f8f9fa;
+        }
+
+        .dates-table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .dates-table tbody tr:hover {
+            background: #eef2f7;
+        }
+
+        .category-cell {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-icon {
+            font-size: 1.2em;
+        }
+
+        .events-list {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .semester-dates {
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+
+        .semester-dates .sem-label {
+            display: inline-block;
+            font-weight: 700;
+            color: #1a2a4a;
+            margin-right: 4px;
+        }
+
+        .semester-dates .sem-date {
+            color: #333;
+        }
+
+        .semester-dates .sem-na {
+            color: #999;
+            font-style: italic;
+        }
+
+        .semester-badge {
+            display: inline-block;
+            background: #c0392b;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .semester-badge.short {
+            background: #e67e22;
+        }
+
+        .semester-badge.s1 {
+            background: #27ae60;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .assessment-card h2 {
+                min-height: auto;
+            }
+            .dates-table {
+                font-size: 0.8em;
+            }
+            .dates-table thead th,
+            .dates-table tbody td {
+                padding: 8px 6px;
+            }
+            .resource-links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .dates-table thead {
+                display: none;
+            }
+            .dates-table tbody tr {
+                display: block;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 6px;
+                padding: 10px;
+            }
+            .dates-table tbody td {
+                display: block;
+                text-align: left !important;
+                padding: 8px 5px;
+                border-bottom: none;
+            }
+            .dates-table tbody td:first-child {
+                background: #1a2a4a;
+                color: white;
+                border-radius: 4px;
+                margin-bottom: 5px;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1><span class="bws">BWS</span> WBL ASSESSMENT SYSTEM</h1>
+            <p class="subtitle">Work-Based Learning — Evaluation Portal</p>
+			<p class="subtitle">FAST, UNIVERSITI TUN HUSSEIN ONN MALAYSIA</p>
+        </div>
+
+        <div class="content">
+            <!-- Instructions -->
+            <div class="instructions">
+                <h3>📋 Welcome to the BWS WBL Assessment System</h3>
+                <ul>
+                    <li>Select an assessment type below to begin evaluation</li>
+                    <li>All assessments are submitted directly to Google Sheets</li>
+                    <li>Ensure all required fields are completed before submitting</li>
+                </ul>
+            </div>
+
+            <!-- Additional Resources Section -->
+            <div class="resources-section">
+                <h3>📚 Additional Resources & Information</h3>
+                <div class="resource-links">
+                    <a href="https://logmac11.github.io/codatyx/index.html" target="_blank" class="resource-link">
+                        <span class="resource-icon">🎓</span>
+                        <div class="resource-text">
+                            <strong>BSc. Computational Data Analytics & WBL</strong>
+                            <span>Learn more about our program and WBL opportunities</span>
+                        </div>
+                    </a>
+                    <a href="https://sites.google.com/uthm.edu.my/e-modulewblbws/home?authuser=0" target="_blank" class="resource-link">
+                        <span class="resource-icon">📖</span>
+                        <div class="resource-text">
+                            <strong>WBL E-Module & Detailed Guide</strong>
+                            <span>Comprehensive WBL guidelines, modules, and procedures</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Important Dates Section - Simplified -->
+            <div class="dates-section">
+                <h3>📅 Important Dates — WBL Assessment Schedule</h3>
+                <table class="dates-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Events Included</th>
+                            <th><span class="semester-badge">S2 / 2025-2026</span></th>
+                            <th><span class="semester-badge short">S3 / 2025-2026</span></th>
+                            <th><span class="semester-badge s1">S1 / 2026-2027</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">📝</span>
+                                    Registration
+                                </div>
+                            </td>
+                            <td class="events-list">Industry registration, Course registration, WBL session start</td>
+                            <td class="semester-dates">
+                                <span class="sem-label">Industry:</span> <span class="sem-date">2 Mar 2026</span><br>
+                                <span class="sem-label">Courses:</span> <span class="sem-date">8 Mar 2026</span><br>
+                                <span class="sem-label">Session:</span> <span class="sem-date">9 Mar 2026</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">All:</span> <span class="sem-date">13 Jul 2026</span><br>
+                                <span class="sem-label">Session:</span> <span class="sem-date">20 Jul 2026</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">Industry:</span> <span class="sem-date">18 Sept 2026</span><br>
+                                <span class="sem-label">Courses:</span> <span class="sem-date">28 Sept 2026</span><br>
+                                <span class="sem-label">Session:</span> <span class="sem-date">21 Sept 2026</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">📖</span>
+                                    Logbook Submissions
+                                </div>
+                            </td>
+                            <td class="events-list">Week 4, 8, 12, 16 (every 4 weeks)</td>
+                            <td class="semester-dates">
+                                <span class="sem-label">W4:</span> <span class="sem-date">23-29 Mar</span><br>
+                                <span class="sem-label">W8:</span> <span class="sem-date">20-26 Apr</span><br>
+                                <span class="sem-label">W12:</span> <span class="sem-date">18-24 May</span><br>
+                                <span class="sem-label">W16:</span> <span class="sem-date">15-21 Jun</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">W4:</span> <span class="sem-date">3-9 Aug</span><br>
+                                <span class="sem-label">W8:</span> <span class="sem-date">31 Aug-6 Sept</span><br>
+                                <span class="sem-label">W12/16:</span> <span class="sem-na">—</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">W4:</span> <span class="sem-date">5-11 Oct</span><br>
+                                <span class="sem-label">W8:</span> <span class="sem-date">2-8 Nov</span><br>
+                                <span class="sem-label">W12:</span> <span class="sem-date">30 Nov-6 Dec</span><br>
+                                <span class="sem-label">W16:</span> <span class="sem-date">28 Dec-3 Jan</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">👁️</span>
+                                    Assessments
+                                </div>
+                            </td>
+                            <td class="events-list">1st & 2nd Industrial Assessment (Online)</td>
+                            <td class="semester-dates">
+                                <span class="sem-label">1st:</span> <span class="sem-date">4-10 May</span><br>
+                                <span class="sem-label">2nd:</span> <span class="sem-date">15-21 Jun</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">1st:</span> <span class="sem-date">10-16 Aug</span><br>
+                                <span class="sem-label">2nd:</span> <span class="sem-date">31 Aug-6 Sept</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">1st:</span> <span class="sem-date">16-22 Nov</span><br>
+                                <span class="sem-label">2nd:</span> <span class="sem-date">21-27 Dec</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">🏢</span>
+                                    Visits
+                                </div>
+                            </td>
+                            <td class="events-list">1st & 2nd Industrial Visit (F2F / Online as per schedule)</td>
+                            <td class="semester-dates">
+                                <span class="sem-label">1st (F2F):</span> <span class="sem-date">1-7 Jun</span><br>
+                                <span class="sem-label">2nd (Online):</span> <span class="sem-date">15-21 Jun</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-na">— (Intensive semester)</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">1st (Online):</span> <span class="sem-date">19-25 Oct</span><br>
+                                <span class="sem-label">2nd (F2F):</span> <span class="sem-date">7-13 Dec</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">💬</span>
+                                    Feedback
+                                </div>
+                            </td>
+                            <td class="events-list">Mid-Semester & End-Semester Feedback</td>
+                            <td class="semester-dates">
+                                <span class="sem-label">Mid:</span> <span class="sem-date">4-10 May</span><br>
+                                <span class="sem-label">End:</span> <span class="sem-date">6-12 Jul</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">Mid:</span> <span class="sem-date">10-16 Aug</span><br>
+                                <span class="sem-label">End:</span> <span class="sem-date">7-13 Sept</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">Mid:</span> <span class="sem-date">16-22 Nov</span><br>
+                                <span class="sem-label">End:</span> <span class="sem-date">11-15 Jan</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">📑</span>
+                                    BWS Submission & Presentation
+                                </div>
+                            </td>
+                            <td class="events-list">BWS report submission, oral presentation, corrections & final submission</td>
+                            <td class="semester-dates">
+                                <span class="sem-na">—</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-na">—</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-label">Report:</span> <span class="sem-date">14 Dec 2026</span><br>
+                                <span class="sem-label">Oral Pres:</span> <span class="sem-date">21-22 Dec 2026</span><br>
+                                <span class="sem-label">Corrections:</span> <span class="sem-date">28 Dec-01 Jan</span><br>
+                                <span class="sem-label">EReport:</span> <span class="sem-date">08 Jan 2027</span><br>
+                                <span class="sem-label">Final:</span> <span class="sem-date">13 Jan 2027</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="category-cell">
+                                    <span class="category-icon">⚠️</span>
+                                    Deadlines
+                                </div>
+                            </td>
+                            <td class="events-list">SAS Closed (Final Deadline)</td>
+                            <td class="semester-dates">
+                                <span class="sem-date" style="font-weight: 700; color: #c0392b;">6-12 Jul 2026</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-date" style="font-weight: 700; color: #c0392b;">7-13 Sept 2026</span>
+                            </td>
+                            <td class="semester-dates">
+                                <span class="sem-date" style="font-weight: 700; color: #c0392b;">11-15 Jan 2027</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Assessment Selection Cards -->
+            <div class="card-grid">
+                <!-- Card 1: Logbook -->
+                <div class="assessment-card">
+                    <div class="card-icon">📖</div>
+                    <h2>WBL Logbook Assessment <span class="role-badge">INDUSTRY</span></h2>
+                    <p class="card-description">
+                        Industry evaluation of student logbook submissions. Assessed every 4 weeks covering content quality, organization, work quality, planning, and attitude.
+                    </p>
+                    <div class="card-details">
+                        <span class="detail-item">📊 5 Rubric Items</span>
+                        <span class="detail-item">📈 Max Score: 30</span>
+                        <span class="detail-item">🔄 Every 4 Weeks</span>
+                    </div>
+                    <a href="logbook.html" class="card-btn">Start Logbook Assessment</a>
+                </div>
+
+                <!-- Card 2: Observation -->
+                <div class="assessment-card">
+                    <div class="card-icon">👁️</div>
+                    <h2>Observation & Demonstration <span class="role-badge">INDUSTRY</span></h2>
+                    <div class="course-list">
+                        <p><strong>BWS44004:</strong> IT Professional Practice & Ethics</p>
+                        <p><strong>BWS44104:</strong> Data Analytics & Management</p>
+                        <p><strong>BWS44204:</strong> Industry Integrated Project Proposal</p>
+                    </div>
+                    <div class="card-details">
+                        <span class="detail-item">📊 3 Course Sections</span>
+                        <span class="detail-item">📈 Max Score: 195</span>
+                        <span class="detail-item">🎯 Multi-Course</span>
+                    </div>
+                    <a href="observation.html" class="card-btn">Start Observation Assessment</a>
+                </div>
+                
+                <!-- Card 3: BWS44406 & BWS44506 -->
+                <div class="assessment-card">
+                    <div class="card-icon">📊</div>
+                    <h2>Observation & Demonstration <span class="role-badge">INDUSTRY</span></h2>
+                    <div class="course-list">
+                        <p><strong>BWS44406:</strong> Industry Integrated Project Framework & Dev.</p>
+                        <p><strong>BWS44506:</strong> Industry Integrated Project Report</p>
+                    </div>
+                    <div class="card-details">
+                        <span class="detail-item">📊 6 Criteria × 2 Courses</span>
+                        <span class="detail-item">📈 Max: 140 (70+70)</span>
+                        <span class="detail-item">🎯 Observation</span>
+                    </div>
+                    <a href="observation_bws44406_44506.html" class="card-btn">Start Assessment</a>
+                </div>
+
+                <!-- Card 4: Feedback -->
+                <div class="assessment-card">
+                    <div class="card-icon">💬</div>
+                    <h2>Industry Coach Feedback <span class="role-badge">INDUSTRY</span></h2>
+                    <p class="card-description">
+                        Qualitative evaluation form for industry coaches to provide structured feedback on student performance, strengths, and actionable recommendations.
+                    </p>
+                    <div class="card-details">
+                        <span class="detail-item">📝 Text Feedback</span>
+                        <span class="detail-item">🎯 Mid/End Semester</span>
+                        <span class="detail-item">📊 Qualitative</span>
+                    </div>
+                    <a href="feedback.html" class="card-btn">Submit Feedback</a>
+                </div>
+
+                <!-- Card 5: BWS44601 Observation -->
+                <div class="assessment-card">
+                    <div class="card-icon">🔬</div>
+					<h2>Observation & Demonstration <span class="role-badge">INDUSTRY</span></h2>
+                    <div class="course-list">
+                        <p><strong>BWS44601:</strong> Applied Research Skills</p>
+                    </div>
+                    <p class="card-description">
+                        Observation assessment for Applied Research Skills covering research methodologies, framework development, professional integrity, and scholarly leadership.
+                    </p>
+                    <div class="card-details">
+                        <span class="detail-item">📊 6 Criteria</span>
+                        <span class="detail-item">📈 Max Score: 70</span>
+                        <span class="detail-item">🎯 Observation</span>
+                    </div>
+                    <a href="observation_bws44601.html" class="card-btn">Start Assessment</a>
+                </div>
+
+                <!-- Card 6: Formative Site Visit -->
+                <div class="assessment-card">
+                    <div class="card-icon">🎓</div>
+                    <h2>Formative Site Visit <span class="role-badge university">UNIVERSITY</span></h2>
+                    <p class="card-description">
+                        University supervisor's on-site evaluation rubric assessing student progress across 5 criteria: technical knowledge, communication, professionalism, problem-solving, and work planning.
+                    </p>
+                    <div class="card-details">
+                        <span class="detail-item">📊 5 Criteria</span>
+                        <span class="detail-item">📈 Max: 4.8</span>
+                        <span class="detail-item">🎯 Site Visit</span>
+                    </div>
+                    <a href="formative.html" class="card-btn">Start Formative Assessment</a>
+                </div>
+            </div>
+
+            <!-- Quick Info -->
+            <div class="info-section">
+                <h3>📌 Important Notes</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <h4>🔒 Data Privacy</h4>
+                        <p>All assessment data is stored securely in Google Sheets and accessible only to authorized personnel.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>📅 Submission Deadline</h4>
+                        <p>Complete assessments before the SAS closing date as per the WBL schedule.</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>📞 Support</h4>
+                        <p>Contact your University Supervisor or WBL Coordinator for any questions regarding the assessment process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            BWS WBL Assessment System (FAST, UTHM) &copy; 2026 — All rights reserved
+        </div>
+    </div>
+</body>
+</html>
